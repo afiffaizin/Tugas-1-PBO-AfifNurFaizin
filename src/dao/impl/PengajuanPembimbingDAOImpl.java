@@ -21,7 +21,7 @@ public class PengajuanPembimbingDAOImpl implements PengajuanPembimbingDAO {
         try (PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             statement.setInt(1, entity.getMahasiswaId());
             statement.setInt(2, entity.getDosenId());
-            statement.setString(3, "MENUNGGU"); // Default selalu menunggu saat pertama kali diajukan
+            statement.setString(3, "MENUNGGU"); 
             
             statement.executeUpdate();
             
@@ -30,9 +30,9 @@ public class PengajuanPembimbingDAOImpl implements PengajuanPembimbingDAO {
                     entity.setId(generatedKeys.getInt(1));
                 }
             }
-            System.out.println("✅ Pengajuan pembimbing berhasil dikirim!");
+            System.out.println("Pengajuan pembimbing berhasil dikirim!");
         } catch (SQLException e) {
-            System.err.println("❌ Gagal mengajukan pembimbing: " + e.getMessage());
+            System.err.println("Gagal mengajukan pembimbing: " + e.getMessage());
         }
     }
 
@@ -94,7 +94,6 @@ public class PengajuanPembimbingDAOImpl implements PengajuanPembimbingDAO {
 
     @Override
     public void update(PengajuanPembimbing entity) {
-        // Method update generic jika perlu mengubah mahasiswa atau dosen nya
         String sql = "UPDATE pengajuan_pembimbing SET mahasiswa_id = ?, dosen_id = ?, status = ? WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, entity.getMahasiswaId());
@@ -114,9 +113,9 @@ public class PengajuanPembimbingDAOImpl implements PengajuanPembimbingDAO {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             statement.executeUpdate();
-            System.out.println("✅ Data pengajuan berhasil dihapus.");
+            System.out.println("Data pengajuan berhasil dihapus.");
         } catch (SQLException e) {
-            System.err.println("❌ Gagal delete PengajuanPembimbing: " + e.getMessage());
+            System.err.println("Gagal delete PengajuanPembimbing: " + e.getMessage());
         }
     }
 
@@ -201,12 +200,12 @@ public class PengajuanPembimbingDAOImpl implements PengajuanPembimbingDAO {
             
             int rowsUpdated = statement.executeUpdate();
             if(rowsUpdated > 0) {
-                 System.out.println("✅ Status pengajuan berhasil diubah menjadi: " + statusBaru);
+                 System.out.println("Status pengajuan berhasil diubah menjadi: " + statusBaru);
             } else {
-                 System.out.println("❌ Gagal! ID Pengajuan tidak ditemukan.");
+                 System.out.println("Gagal! ID Pengajuan tidak ditemukan.");
             }
         } catch (SQLException e) {
-            System.err.println("❌ Error updateStatus: " + e.getMessage());
+            System.err.println("Error updateStatus: " + e.getMessage());
         }
     }
 }

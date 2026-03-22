@@ -31,9 +31,8 @@ public class Main {
         LogbookBimbinganDAO logbookDao = new LogbookBimbinganDAOImpl();
 
         while (true) {
-            System.out.println("=================================================");
             System.out.println("       SISTEM INFORMASI TUGAS AKHIR        ");
-            System.out.println("=================================================");
+            System.out.println("============================================");
             System.out.println("Menu Awal:");
             System.out.println("1. Login");
             System.out.println("0. Keluar Aplikasi");
@@ -105,7 +104,7 @@ public class Main {
                                             if("DITERIMA".equals(p.getStatus())) {
                                                 sudahDiterima = true;
                                                 namaDpn = p.getNamaDosen();
-                                                bolehMengajukan = false; // Pastinya gak boleh ngajuin lagi
+                                                bolehMengajukan = false; 
                                             } else if("MENUNGGU".equals(p.getStatus())) {
                                                 bolehMengajukan = false;
                                             }

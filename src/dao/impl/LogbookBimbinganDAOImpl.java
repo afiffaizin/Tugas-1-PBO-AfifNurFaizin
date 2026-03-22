@@ -33,9 +33,9 @@ public class LogbookBimbinganDAOImpl implements LogbookBimbinganDAO {
                     entity.setId(generatedKeys.getInt(1));
                 }
             }
-            System.out.println("✅ Logbook bimbingan berhasil disimpan!");
+            System.out.println("Logbook bimbingan berhasil disimpan!");
         } catch (SQLException e) {
-            System.err.println("❌ Gagal menyimpan logbook: " + e.getMessage());
+            System.err.println("Gagal menyimpan logbook: " + e.getMessage());
         }
     }
 
@@ -115,9 +115,9 @@ public class LogbookBimbinganDAOImpl implements LogbookBimbinganDAO {
             statement.setInt(7, entity.getId());
             
             statement.executeUpdate();
-            System.out.println("✅ Logbook bimbingan berhasil diupdate!");
+            System.out.println("Logbook bimbingan berhasil diupdate!");
         } catch (SQLException e) {
-            System.err.println("❌ Gagal update Logbook: " + e.getMessage());
+            System.err.println("Gagal update Logbook: " + e.getMessage());
         }
     }
 
@@ -127,9 +127,9 @@ public class LogbookBimbinganDAOImpl implements LogbookBimbinganDAO {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             statement.executeUpdate();
-            System.out.println("✅ Data logbook berhasil dihapus.");
+            System.out.println("Data logbook berhasil dihapus.");
         } catch (SQLException e) {
-            System.err.println("❌ Gagal delete Logbook: " + e.getMessage());
+            System.err.println("Gagal delete Logbook: " + e.getMessage());
         }
     }
 
@@ -207,12 +207,12 @@ public class LogbookBimbinganDAOImpl implements LogbookBimbinganDAO {
             
             int rowsUpdated = statement.executeUpdate();
             if(rowsUpdated > 0) {
-                 System.out.println("✅ Catatan Logbook berhasil diberikan!");
+                 System.out.println("Catatan Logbook berhasil diberikan!");
             } else {
-                 System.out.println("❌ Gagal! ID Logbook tidak ditemukan.");
+                 System.out.println("Gagal! ID Logbook tidak ditemukan.");
             }
         } catch (SQLException e) {
-            System.err.println("❌ Error updateCatatanDanStatus: " + e.getMessage());
+            System.err.println("Error updateCatatanDanStatus: " + e.getMessage());
         }
     }
 }

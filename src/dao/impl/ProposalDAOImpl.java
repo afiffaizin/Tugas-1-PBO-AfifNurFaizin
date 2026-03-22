@@ -31,9 +31,9 @@ public class ProposalDAOImpl implements ProposalDAO {
                     entity.setId(generatedKeys.getInt(1));
                 }
             }
-            System.out.println("✅ Proposal berhasil diajukan!");
+            System.out.println("Proposal berhasil diajukan!");
         } catch (SQLException e) {
-            System.err.println("❌ Gagal mengajukan proposal: " + e.getMessage());
+            System.err.println("Gagal mengajukan proposal: " + e.getMessage());
         }
     }
 
@@ -91,9 +91,9 @@ public class ProposalDAOImpl implements ProposalDAO {
             statement.setInt(4, entity.getId());
             
             statement.executeUpdate();
-            System.out.println("✅ Proposal berhasil diupdate.");
+            System.out.println("Proposal berhasil diupdate.");
         } catch (SQLException e) {
-            System.err.println("❌ Gagal update Proposal: " + e.getMessage());
+            System.err.println("Gagal update Proposal: " + e.getMessage());
         }
     }
 
@@ -103,9 +103,9 @@ public class ProposalDAOImpl implements ProposalDAO {
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);
             statement.executeUpdate();
-            System.out.println("✅ Proposal berhasil dihapus.");
+            System.out.println("Proposal berhasil dihapus.");
         } catch (SQLException e) {
-            System.err.println("❌ Gagal delete Proposal: " + e.getMessage());
+            System.err.println("Gagal delete Proposal: " + e.getMessage());
         }
     }
 

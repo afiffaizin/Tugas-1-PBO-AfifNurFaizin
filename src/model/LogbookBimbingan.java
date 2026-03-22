@@ -11,7 +11,7 @@ public class LogbookBimbingan {
     private String catatanDosen;
     private String status;
 
-    // Properti tambahan untuk JOIN query
+    // Properti untuk JOIN query
     private String namaMahasiswa;
     private String namaDosen;
 

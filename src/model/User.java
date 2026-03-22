@@ -1,8 +1,6 @@
 package model;
 
-// Abstraksi: Kelas User sebagai abstract class (Parent Class)
 public abstract class User {
-    // Enkapsulasi: Semua property private
     private int id;
     private String username;
     private String password;
@@ -15,7 +13,6 @@ public abstract class User {
         this.role = role;
     }
 
-    // Akses dan modifikasi melalui Getter dan Setter
     public int getId() {
         return id;
     }

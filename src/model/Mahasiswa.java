@@ -51,12 +51,11 @@ public class Mahasiswa extends User {
     // Polimorfisme: Override abstract method dari class User
     @Override
     public void tampilkanMenu() {
-        System.out.println("=== Menu Mahasiswa ===");
+        System.out.println(" Menu Mahasiswa ");
         System.out.println("1. Input Proposal");
         System.out.println("2. Pilih Pembimbing");
         System.out.println("3. Isi Progres Logbook");
         System.out.println("4. Lihat Riwayat Logbook & Catatan");
         System.out.println("5. Logout");
-        System.out.println("======================");
     }
 }

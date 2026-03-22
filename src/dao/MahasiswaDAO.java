@@ -9,12 +9,12 @@ import model.Mahasiswa;
 public interface MahasiswaDAO extends BaseDAO<Mahasiswa> {
     
     /**
-     * Mengambil data Mahasiswa spesifik berdasarkan NIM-nya
+     * Mengambil data Mahasiswa spesifik berdasarkan NIM
      */
     Mahasiswa findByNim(String nim);
     
     /**
-     * Memeriksa apakah NIM sudah terdaftar (NIM harus unik)
+     * Memeriksa apakah NIM sudah terdaftar
      */
     boolean isNimExist(String nim);
 }

@@ -6,7 +6,6 @@ public class PengajuanPembimbing {
     private int dosenId;
     private String status;
     
-    // Properti tambahan (Optional) untuk keperluan representasi Join Table
     private String namaMahasiswa;
     private String namaDosen;
 

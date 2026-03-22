@@ -1,6 +1,6 @@
 package model;
 
-// Inheritance: Dosen mewarisi User
+
 public class Dosen extends User {
     private int dosenId;
     private String nidn;
@@ -51,11 +51,10 @@ public class Dosen extends User {
     // Polimorfisme: Override abstract method dari class User
     @Override
     public void tampilkanMenu() {
-        System.out.println("=== Menu Dosen ===");
+        System.out.println("Menu Dosen");
         System.out.println("1. Terima/Tolak Bimbingan");
         System.out.println("2. Verifikasi & Isi Catatan Logbook Mahasiswa");
         System.out.println("3. Lihat Riwayat Keseluruhan Logbook Mahasiswa");
         System.out.println("4. Logout");
-        System.out.println("==================");
     }
 }

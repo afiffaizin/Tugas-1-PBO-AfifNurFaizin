@@ -15,12 +15,11 @@ import java.util.List;
 
 public class UserDAOImpl implements UserDAO {
     
-    // Koneksi menggunakan Singleton Pattern
     private Connection connection = DatabaseConfig.getConnection();
 
     @Override
     public User authenticate(String username, String password) {
-        // Query menggunakan JOIN untuk langsung mengambil data peran spesifik (Mahasiswa/Dosen)
+        // Query menggunakan JOIN untuk langsung mengambil data Mahasiswa/Dosen
         String sql = "SELECT u.id AS user_id, u.username, u.password, u.role, " +
                      "m.id AS mhs_id, m.nim, m.nama AS mhs_nama, m.jurusan, " +
                      "d.id AS dsn_id, d.nidn, d.nama AS dsn_nama, d.departemen " +
@@ -81,7 +80,6 @@ public class UserDAOImpl implements UserDAO {
     @Override
     public void insert(User entity) {
         String sql = "INSERT INTO users (username, password, role) VALUES (?, ?, ?)";
-        // ReturnGeneratedKeys berguna untuk mendapatkan ID yang di-generate Auto Increment MySQL
         try (PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             statement.setString(1, entity.getUsername());
             statement.setString(2, entity.getPassword());
@@ -107,9 +105,7 @@ public class UserDAOImpl implements UserDAO {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 if (resultSet.next()) {
-                    // Hanya return user generik, jika butuh detail mahasiswa/dosen pakai join table
-                    // Untuk saat ini instance anonym class sebagai representasi (karena abstract class)
-                    // IDEALNYA dalam sistem nyata, abstract class tidak diinstansiasi langsung
+                   
                     String username = resultSet.getString("username");
                     String password = resultSet.getString("password");
                     String role = resultSet.getString("role");

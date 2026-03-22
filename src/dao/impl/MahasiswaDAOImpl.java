@@ -59,10 +59,7 @@ public class MahasiswaDAOImpl implements MahasiswaDAO {
 
     @Override
     public void insert(Mahasiswa entity) {
-        // Karena constraint Foreign Key as Cascade, User harus di-insert lebih dulu,
-        // (Bisa dilakukan secara terpisah oleh class Controller/Service melalui UserDAOImpl)
-        // Disini asumsikan `entity.getId()` (id user Parent-nya) sudah terisi & valid.
-        
+        // Karena constraint Foreign Key as Cascade, User harus di-insert lebih dulu,        
         String sql = "INSERT INTO mahasiswa (user_id, nim, nama, jurusan) VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             statement.setInt(1, entity.getId()); // Referensi foreign key user_id dari kelas Parent User
@@ -137,7 +134,6 @@ public class MahasiswaDAOImpl implements MahasiswaDAO {
 
     @Override
     public void update(Mahasiswa entity) {
-        // Catatan: Ini hanya meng-update entitas Mahasiswanya, 
         // update (username/password) Parent harus via UserDAO
         String sql = "UPDATE mahasiswa SET nim = ?, nama = ?, jurusan = ? WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
@@ -155,11 +151,6 @@ public class MahasiswaDAOImpl implements MahasiswaDAO {
 
     @Override
     public void delete(int id) {
-        // Catatan: pada referensi `ON DELETE CASCADE` di database.sql,
-        // sebenarnya cukup menghapus data di tabel `users` (sebagai parent),
-        // maka data di tabel `mahasiswa` otomatis terhapus oleh DBMS.
-        // Method ini tetap dibuat jika hanya ingin menghapus role mahasiswanya saja 
-        // tanpa menghapus akun user-nya.
         String sql = "DELETE FROM mahasiswa WHERE id = ?";
         try (PreparedStatement statement = connection.prepareStatement(sql)) {
             statement.setInt(1, id);

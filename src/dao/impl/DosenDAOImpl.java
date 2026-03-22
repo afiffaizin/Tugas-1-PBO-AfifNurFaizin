@@ -57,7 +57,6 @@ public class DosenDAOImpl implements DosenDAO {
 
     @Override
     public void insert(Dosen entity) {
-        // Asumsi `entity.getId()` (id user Parent-nya) sudah terisi & valid dari UserDAO.insert()
         String sql = "INSERT INTO dosen (user_id, nidn, nama, departemen) VALUES (?, ?, ?, ?)";
         try (PreparedStatement statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS)) {
             statement.setInt(1, entity.getId()); 

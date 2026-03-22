@@ -15,7 +15,7 @@ public class DatabaseConfig {
     // Private constructor mencegah instansiasi dari luar
     private DatabaseConfig() {}
 
-    // Method untuk mendapatkan instance koneksi (Singleton Pattern)
+    // Method untuk mendapatkan instance koneksi
     public static Connection getConnection() {
         if (connection == null) {
             try {

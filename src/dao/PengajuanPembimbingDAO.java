@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface PengajuanPembimbingDAO extends BaseDAO<PengajuanPembimbing> {
     
-    // Mengecek apakah mahasiswa sudah pernah mengajukan pembimbing untuk menghindari entri ganda
+    // Mengecek apakah mahasiswa sudah pernah mengajukan pembimbing
     boolean hasPengajuan(int mahasiswaId);
     
     // Dosen melihat daftar mahasiswa yang mengajukan bimbingan kepadanya
@@ -14,6 +14,6 @@ public interface PengajuanPembimbingDAO extends BaseDAO<PengajuanPembimbing> {
     // Mahasiswa melihat status pengajuannya sendiri
     List<PengajuanPembimbing> findByMahasiswaId(int mahasiswaId);
     
-    // Dosen dapat mengubah status menjadi DITERIMA atau DITOLAK
+    // Dosen mengubah status menjadi DITERIMA atau DITOLAK
     void updateStatus(int idPengajuan, String statusBaru);
 }
